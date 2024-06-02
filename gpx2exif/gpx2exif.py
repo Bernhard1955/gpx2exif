@@ -9,7 +9,7 @@ import time
 import click
 import piexif
 
-from .common import (
+from common import (
     ask_option,
     clear_option,
     compute_pos,
@@ -289,6 +289,7 @@ def synch_gps_exif(
         for img_filepath in sorted(img_fileordirpath.iterdir()):
             # do not process hidden files (sometimes used by the OS to store
             # metadata, like .DS_store on macOS)
+            # Kuhn add filestring 
             if img_filepath.is_file() and not img_filepath.name.startswith("."):
                 try:
                     pos = process_image(

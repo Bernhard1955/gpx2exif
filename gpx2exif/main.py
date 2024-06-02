@@ -4,8 +4,7 @@ import sys
 import click
 from colorama import Fore, Style
 
-from .gpx2exif import gpx2exif
-from .gpx2flickr import gpx2flickr
+from gpx2exif import gpx2exif
 
 logger = logging.getLogger(__package__)
 
@@ -55,7 +54,6 @@ def main(ctx, is_debug):
 
 
 gpx2exif = main.command("image")(gpx2exif)
-gpx2flickr = main.command("flickr")(gpx2flickr)
 
 if __name__ == "__main__":
     main()

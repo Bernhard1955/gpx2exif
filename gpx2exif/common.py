@@ -338,8 +338,9 @@ def write_kml(
 {image_name(image)}</br></br>
 <img src="{image_src(image)}" width="{kml_thumbnail_size}" {css_style} />
  ]]>"""
-        pnt = kml.newpoint(description=desc, coords=[latlon[::-1]])
+        pnt = kml.newpoint(name=image.split('\\')[-1], description=desc, coords=[latlon[::-1]])
         pnt.style = sharedstyle
+        pnt.description = image.split('\\')[-1]
     try:
         kml.save(kml_path)
     except Exception:
